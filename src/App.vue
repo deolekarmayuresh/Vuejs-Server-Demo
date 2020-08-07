@@ -37,14 +37,14 @@
       methods: {
         submit() {
           // console.log(this.user);
-          this.$http.post("https://vue-server-demo-73f47.firebaseio.com/data.json", this.user).then(response => {
+          this.$http.post("", this.user).then(response => {
             console.log(response);
           }, error => {
             console.log(error);
           });
         },
         fetchData() {
-          this.$http.get("https://vue-server-demo-73f47.firebaseio.com/data.json").then(response => {
+          this.$http.get("").then(response => {
             return response.json();
           })
           .then(data => {
