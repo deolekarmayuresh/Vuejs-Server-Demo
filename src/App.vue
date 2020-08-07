@@ -12,6 +12,8 @@
                   <input type="text" class="form-control" v-model="user.email">
                 </div>
                 <button class="btn btn-primary" @click="submit">Submit</button>
+                <hr>
+                <button class="btn btn-primary" @click="fetchData">Get Data</button>
             </div>
         </div>
     </div>
@@ -34,6 +36,18 @@
             console.log(response);
           }, error => {
             console.log(error);
+          });
+        },
+        fetchData() {
+          this.$http.get("https://vue-server-demo-73f47.firebaseio.com/data.json").then(response => {
+            return response.json();
+          })
+          .then(data => {
+            const resultArray = [];
+            for (let key in data) {
+              resultArray.push(data[key]);
+            }
+            this.users = resultArray;
           });
         }
       },
