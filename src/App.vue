@@ -31,7 +31,8 @@
             username: '',
             email: ''
           },
-          users: []
+          users: [], 
+          resource: {}
         };
       },
       methods: {
@@ -56,7 +57,9 @@
           });
         }
       },
-    }
+      created() {
+        this.resource = this.$resource('data.json');
+      }
 </script>
 
 <style>
